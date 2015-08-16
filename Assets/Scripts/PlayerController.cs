@@ -93,11 +93,16 @@ public class PlayerController : Entity {
 		//Input
 		
 		if (!sliding) {
-			targetSpeed = Input.GetAxisRaw ("Horizontal") * walkSpeed;
+			if(Input.GetButton ("Run")){
+				targetSpeed = Input.GetAxisRaw ("Horizontal") * runSpeed;
+			}
+			else{
+				targetSpeed = Input.GetAxisRaw ("Horizontal") * walkSpeed;
+			}
 			currentSpeed = IncrementTowards (currentSpeed, targetSpeed, acceleration);
 			
 			// Face Direction
-			float moveDir = 1;
+			float moveDir = Input.GetAxisRaw ("Horizontal");
 			if (moveDir != 0) {
 				transform.eulerAngles = (moveDir > 0) ? (Vector3.up * 180) : Vector3.zero;
 			}
