@@ -10,6 +10,7 @@ public class GameCamera : MonoBehaviour {
 		transform.position = new Vector3 (t.position.x + 20.0f, t.position.y, transform.position.z);
 	}
 
+
 	void LateUpdate(){
 		if (target) {
 			float x = IncrementTowards (transform.position.x, target.position.x + 5.0f,trackSpeed);
