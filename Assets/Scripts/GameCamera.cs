@@ -4,28 +4,6 @@ using System.Collections;
 public class GameCamera : MonoBehaviour {
 	private Transform target;
 	private float trackSpeed = 15;
-	private Camera _camera;
-	private new Transform transform;
-	private float _targetOrthographicSize;
-	private float _preferredOrthographicSize;
-	private float _maxOrthographicSize;
-	private float _neutralVerticalOffset = 0;
-
-	private float zoom{ get { return _preferredOrthographicSize / _camera.orthographicSize; } }
-	private DigitalAverage _heightAverage = new DigitalAverage ();
-	private bool _pinnedToTop = false;
-	private PlayerController _playerController;
-
-	void Start()
-	{
-		_camera = Camera.main;
-		transform = _camera.transform;
-		_preferredOrthographicSize = Screen.height / 2;
-		_maxOrthographicSize = _preferredOrthographicSize * 2; 
-		_camera.orthographicSize = _preferredOrthographicSize;
-
-		_playerController = player.GetComponent<PlayerController> ();
-	}
 
 	public void SetTarget(Transform t){
 		target = t;
